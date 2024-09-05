@@ -31,7 +31,7 @@ Use the available tools to set up repositories, process files, optimize structur
 def call_model(state, config):
     messages = state["messages"]
     messages = [{"role": "system", "content": system_prompt}] + messages
-    model_name = config["model_name"]
+    model_name = "openai" #config["model_name"]
     model = _get_model(model_name)
     response = model.invoke(messages)
     return {"messages": [response]}
