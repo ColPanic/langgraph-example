@@ -1,17 +1,11 @@
-from typing import TypedDict, Literal
-
+# File: agent.py
 from langgraph.graph import StateGraph, END
 from my_agent.utils.nodes import call_model, should_continue, tool_node
 from my_agent.utils.state import RefactorState
 
 
-# Define the config
-class GraphConfig(TypedDict):
-    model_name: Literal["anthropic", "openai"]
-
-
 # Define a new graph
-workflow = StateGraph(RefactorState, config_schema=GraphConfig)
+workflow = StateGraph(RefactorState)
 
 # Define the nodes we will use
 workflow.add_node("agent", call_model)

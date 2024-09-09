@@ -1,5 +1,8 @@
 {
-  "dockerfile_lines": [],
+  "dockerfile_lines": [
+    "RUN apt-get update && apt-get install -y git",
+    "ENV PYTHONPATH=/deps/__outer_my_agent:$PYTHONPATH"
+  ],
   "graphs": {
     "agent": "./my_agent/agent.py:graph"
   },
@@ -7,5 +10,6 @@
   "python_version": "3.11",
   "dependencies": [
     "./my_agent"
-  ]
+  ],
+  "log_level": "DEBUG"
 }
